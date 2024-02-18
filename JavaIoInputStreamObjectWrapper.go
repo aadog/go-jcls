@@ -1,4 +1,4 @@
-package cls
+package jcls
 
 import (
 	"github.com/aadog/go-java"
