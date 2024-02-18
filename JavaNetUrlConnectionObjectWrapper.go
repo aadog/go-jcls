@@ -117,7 +117,7 @@ func (j *JavaNetUrlConnectionObjectWrapper) GetHeaderFieldKey_n(n int) mo.Result
 func (j *JavaNetUrlConnectionObjectWrapper) GetHeaderFields() mo.Result[*java.ObjectWrapper] {
 	r, err := j.CallObjectA("getHeaderFields").Get()
 	if err != nil {
-		return mo.Err[*jvm.ObjectWrapper](err)
+		return mo.Err[*java.ObjectWrapper](err)
 	}
 	return mo.Ok(r)
 }

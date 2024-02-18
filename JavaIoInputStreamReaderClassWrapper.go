@@ -16,14 +16,14 @@ func (j *JavaIoInputStreamReaderClassWrapper) InputStreamReader_in(in *JavaIoInp
 	}
 	return mo.Ok(JavaIoInputStreamReaderWithJniPtr(c.JniPtr()))
 }
-func (j *JavaIoInputStreamReaderClassWrapper) InputStreamReader_in_cs(in *JavaIoInputStreamObjectWrapper, cs *jvm.ObjectWrapper) mo.Result[*JavaIoInputStreamReaderObjectWrapper] {
+func (j *JavaIoInputStreamReaderClassWrapper) InputStreamReader_in_cs(in *JavaIoInputStreamObjectWrapper, cs *java.ObjectWrapper) mo.Result[*JavaIoInputStreamReaderObjectWrapper] {
 	c, err := j.New(in, cs).Get()
 	if err != nil {
 		return mo.Err[*JavaIoInputStreamReaderObjectWrapper](err)
 	}
 	return mo.Ok(JavaIoInputStreamReaderWithJniPtr(c.JniPtr()))
 }
-func (j *JavaIoInputStreamReaderClassWrapper) InputStreamReader_in_dec(in *JavaIoInputStreamObjectWrapper, dec *jvm.ObjectWrapper) mo.Result[*JavaIoInputStreamReaderObjectWrapper] {
+func (j *JavaIoInputStreamReaderClassWrapper) InputStreamReader_in_dec(in *JavaIoInputStreamObjectWrapper, dec *java.ObjectWrapper) mo.Result[*JavaIoInputStreamReaderObjectWrapper] {
 	c, err := j.New(in, dec).Get()
 	if err != nil {
 		return mo.Err[*JavaIoInputStreamReaderObjectWrapper](err)
