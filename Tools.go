@@ -33,3 +33,19 @@ func (t ToolsStruct) GetVersionName(applicationContext *java.ObjectWrapper) mo.R
 	str := pkgInfo.GetStringFieldValue("versionName").MustGet()
 	return mo.Ok(str)
 }
+
+func (t ToolsStruct) GetNativeLibraryDir(application *java.ObjectWrapper) mo.Result[string] {
+	appInfo, err := application.CallObjectA("getApplicationInfo").Get()
+	if err != nil {
+		return mo.Err[string](err)
+	}
+	defer appInfo.Free()
+	return appInfo.GetStringFieldValue("nativeLibraryDir")
+}
+func (t ToolsStruct) GetGetProperty(property string) mo.Result[string] {
+	system, err := java.Use("java.lang.System").Get()
+	if err != nil {
+		return mo.Err[string](err)
+	}
+	return system.CallStaticStringA("getProperty", property)
+}
